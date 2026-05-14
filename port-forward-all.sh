@@ -20,6 +20,8 @@ nohup kubectl port-forward svc/skywalking-ui   -n skywalking         --address=0
 nohup kubectl port-forward svc/prometheus      -n istio-system       --address=0.0.0.0 9090:9090   >/tmp/pf-prometheus.log 2>&1 &
 nohup kubectl port-forward svc/loki            -n logging            --address=0.0.0.0 3100:3100   >/tmp/pf-loki.log 2>&1 &
 nohup kubectl port-forward svc/alertmanager    -n monitoring         --address=0.0.0.0 9093:9093   >/tmp/pf-alertmanager.log 2>&1 &
+nohup kubectl port-forward svc/tempo           -n tracing            --address=0.0.0.0 3200:3200   >/tmp/pf-tempo.log 2>&1 &
+nohup kubectl port-forward svc/tempo           -n tracing            --address=0.0.0.0 9411:9411   >/tmp/pf-tempo-zipkin.log 2>&1 &
 
 sleep 4
 
@@ -52,8 +54,9 @@ declare -A checks=(
   ["Tekton:30011"]="http://localhost:30011"
   ["Prometheus:9090"]="http://localhost:9090/-/ready"
   ["Loki:3100"]="http://localhost:3100/ready"
+  ["Tempo:3200"]="http://localhost:3200/ready"
 )
-for name in "Harbor:30002" "ArgoCD:30008" "Kubero:30010" "Tekton:30011" "Prometheus:9090" "Loki:3100"; do
+for name in "Harbor:30002" "ArgoCD:30008" "Kubero:30010" "Tekton:30011" "Prometheus:9090" "Loki:3100" "Tempo:3200"; do
   url="${checks[$name]}"
   code=$(curl -sk -o /dev/null -w "%{http_code}" --max-time 3 "$url" 2>/dev/null)
   ok=$([ "$code" -ge 200 ] && [ "$code" -lt 400 ] 2>/dev/null && echo "✅" || echo "⏳")
