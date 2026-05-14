@@ -1,0 +1,969 @@
+Polaris audited Cluster https://127.0.0.1:46265 at 2026-05-08T11:01:35+09:00
+    Nodes: 1 | Namespaces: 9 | Controllers: 31
+    Final score: 77
+
+Ingress bookinfo in namespace default
+    tlsSettingsMissing                   😬 Warning
+        Security - Ingress does not have TLS configured
+
+Ingress istio-system in namespace default
+    tlsSettingsMissing                   😬 Warning
+        Security - Ingress does not have TLS configured
+
+Ingress istio-system in namespace istio-system
+    tlsSettingsMissing                   😬 Warning
+        Security - Ingress does not have TLS configured
+
+DaemonSet kube-proxy in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    hostPathSet                          😬 Warning
+        Security - HostPath volumes must be forbidden
+  Container kube-proxy
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+
+DaemonSet kindnet in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    hostNetworkSet                       ❌ Danger
+        Security - Host network should not be configured
+    hostPathSet                          😬 Warning
+        Security - HostPath volumes must be forbidden
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+  Container kindnet-cni
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    dangerousCapabilities                ❌ Danger
+        Security - Container should not have dangerous capabilities
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+
+Deployment kafka-producer in namespace default
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container kafka-producer
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+
+Deployment reviews-v3 in namespace default
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+  Container reviews
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+
+Deployment istiod in namespace istio-system
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+  Container discovery
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+
+Deployment kiali in namespace istio-system
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+  Container kiali
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+
+Deployment local-path-provisioner in namespace local-path-storage
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container local-path-provisioner
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+
+Deployment kube-state-metrics in namespace kube-system
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+  Container kube-state-metrics
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+
+Deployment reviews-v2 in namespace default
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container reviews
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+
+Deployment istio-ingressgateway in namespace istio-system
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container istio-proxy
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+
+Deployment httpbin in namespace default
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+  Container httpbin
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+
+Deployment prometheus in namespace istio-system
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container prometheus-server-configmap-reload
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+  Container prometheus-server
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+
+Deployment vm-nginx in namespace vm-nginx
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container nginx
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+  Container kafka-producer
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+
+Deployment metrics-server in namespace kube-system
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container metrics-server
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+
+Deployment skywalking-ui in namespace skywalking
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container ui
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+
+Deployment details-v1 in namespace default
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container details
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+
+Deployment ratings-v1 in namespace default
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container ratings
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+
+Deployment otel-collector in namespace skywalking
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container otel-collector
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+
+Deployment banyandb in namespace skywalking
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+  Container banyandb
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+
+Deployment skywalking-oap in namespace skywalking
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container oap
+    sensitiveContainerEnvVar             ❌ Danger
+        Security - The container sets potentially sensitive environment variables
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+
+Deployment fortio-deploy in namespace default
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+  Container fortio
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+
+Deployment productpage-v1 in namespace default
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container productpage
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+
+Deployment kafka-consumer in namespace default
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container kafka-consumer
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+
+Deployment istio-egressgateway in namespace istio-system
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container istio-proxy
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+
+Deployment reviews-v1 in namespace default
+    deploymentMissingReplicas            😬 Warning
+        Reliability - Only one replica is scheduled
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+  Container reviews
+    readinessProbeMissing                😬 Warning
+        Reliability - Readiness probe should be configured
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    cpuRequestsMissing                   😬 Warning
+        Efficiency - CPU requests should be set
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    livenessProbeMissing                 😬 Warning
+        Reliability - Liveness probe should be configured
+    memoryRequestsMissing                😬 Warning
+        Efficiency - Memory requests should be set
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+
+Deployment coredns in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingPodDisruptionBudget           😬 Warning
+        Reliability - Should have a PodDisruptionBudget
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container coredns
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+
+ClusterRoleBinding kubeadm:cluster-admins
+    clusterrolebindingClusterAdmin       ❌ Danger
+        Security - The ClusterRoleBinding references the default cluster-admin ClusterRole or one with wildcard permissions
+    clusterrolebindingPodExecAttach      ❌ Danger
+        Security - The ClusterRoleBinding references a ClusterRole that allows Pods/exec, allows pods/attach, or that does not exist
+
+Pod kube-scheduler-myk8s-control-plane in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    hostPathSet                          😬 Warning
+        Security - HostPath volumes must be forbidden
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+  Container kube-scheduler
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+
+Pod etcd-myk8s-control-plane in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    hostPathSet                          😬 Warning
+        Security - HostPath volumes must be forbidden
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    hostNetworkSet                       ❌ Danger
+        Security - Host network should not be configured
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container etcd
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    memoryLimitsMissing                  😬 Warning
+        Efficiency - Memory limits should be set
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    cpuLimitsMissing                     😬 Warning
+        Efficiency - CPU limits should be set
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+
+Pod kube-apiserver-myk8s-control-plane in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    hostPathSet                          😬 Warning
+        Security - HostPath volumes must be forbidden
+  Container kube-apiserver
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+
+Pod kube-controller-manager-myk8s-control-plane in namespace kube-system
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+    hostPathSet                          😬 Warning
+        Security - HostPath volumes must be forbidden
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+  Container kube-controller-manager
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+
+StatefulSet kafka in namespace kafka
+    metadataAndInstanceMismatched        😬 Warning
+        Reliability - Label app.kubernetes.io/instance must match metadata.name
+    missingNetworkPolicy                 😬 Warning
+        Security - A NetworkPolicy should match pod labels and contain applied egress and ingress rules
+    priorityClassNotSet                  😬 Warning
+        Reliability - Priority class should be set
+    topologySpreadConstraint             😬 Warning
+        Reliability - Pod should be configured with a valid topology spread constraint
+    automountServiceAccountToken         😬 Warning
+        Security - The ServiceAccount will be automounted
+  Container kafka
+    privilegeEscalationAllowed           ❌ Danger
+        Security - Privilege escalation should not be allowed
+    runAsRootAllowed                     ❌ Danger
+        Security - Should not be allowed to run as root
+    insecureCapabilities                 😬 Warning
+        Security - Container should not have insecure capabilities
+    notReadOnlyRootFilesystem            😬 Warning
+        Security - Filesystem should be read only
+    pullPolicyNotAlways                  😬 Warning
+        Reliability - Image pull policy should be "Always"
+    linuxHardening                       😬 Warning
+        Security - Use one of AppArmor, Seccomp, SELinux, or dropping Linux Capabilities to restrict containers using unwanted privileges
+
